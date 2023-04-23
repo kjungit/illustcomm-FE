@@ -1,10 +1,10 @@
 import React from "react";
-import LoginForm from "../../componets/LoginForm";
 import { useMutation } from "react-query";
 import { login } from "../../apis/services/Auth";
 import { setCookie } from "../../utils/cookies";
 import { AxiosError } from "axios";
 import { AuthResponse, LoginRequest } from "../../interface/Auth";
+import LoginForm from "../../components/LoginForm";
 
 function LoginPage() {
   const { mutate } = useMutation(login, {
@@ -19,6 +19,7 @@ function LoginPage() {
       console.log(error);
     },
   });
+
   return <LoginForm mutate={mutate} />;
 }
 
