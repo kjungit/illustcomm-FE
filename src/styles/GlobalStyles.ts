@@ -2,6 +2,13 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 const GlobalStyles = createGlobalStyle` 
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
   ${reset} 
     a{
         text-decoration: none;
@@ -40,6 +47,7 @@ const GlobalStyles = createGlobalStyle`
     }
     html { 
       background-color: #000;
+      font-family: "Pretendard-Regular", "Noto Sans KR", sans-serif;
     }
 
     /* img {
