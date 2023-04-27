@@ -3,6 +3,7 @@ import Masonry from "react-masonry-css";
 import { PicLabWrapper } from "./style";
 import { getPosts } from "../../apis/services/Post";
 import { useQuery } from "react-query";
+import { PostItemProps } from "../../common/PostItem/interface";
 
 const breakpointBlogPostColumnsObj = {
   default: 2,
@@ -10,7 +11,20 @@ const breakpointBlogPostColumnsObj = {
 };
 
 function PicLabPage() {
-  const { data: posts, error, isLoading } = useQuery("posts", getPosts);
+  const {
+    data: posts,
+    error,
+    isLoading,
+  } = useQuery("posts", getPosts, {
+    onSuccess: (data) => {
+      data
+        .sort((a: any, b: any) => {
+          return a.updatedAt - b.updatedAt;
+        })
+        .reverse();
+    },
+  });
+
   if (isLoading) {
     return <div>loading...</div>;
   }
