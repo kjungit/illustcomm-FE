@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { NavbarBottom, NavbarContainer, NavbarLink, NavbarTop } from "./style";
 
 function Navbar() {
@@ -14,8 +13,8 @@ function Navbar() {
         <NavbarLink to="/picLab">
           <span>PIC LAB</span>
         </NavbarLink>
-        <NavbarLink to="/life">
-          <span>LIFE</span>
+        <NavbarLink to="/mylab">
+          <span>MY LAB</span>
         </NavbarLink>
       </NavbarTop>
       <NavbarBottom></NavbarBottom>
