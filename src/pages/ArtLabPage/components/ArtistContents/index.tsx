@@ -1,3 +1,4 @@
+import { useQuery } from "react-query";
 import ArtistItem from "../../../../common/ArtistItem";
 import {
   ArtistContentsWrapper,
@@ -5,20 +6,31 @@ import {
   ArtistTitle,
   ArtistWrapper,
 } from "./style";
+import { getUsers } from "../../../../apis/services/Auth";
 
 function ArtistContents() {
+  const { data: users, error, isLoading } = useQuery("users", getUsers);
+
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
+  if (error || !users) {
+    return <div>error...</div>;
+  }
+
   return (
     <ArtistWrapper>
       <ArtistTitle>Artist List</ArtistTitle>
       <ArtistContentsWrapper>
         <ArtistList>
-          {Array.from({ length: 12 }).map((_, index) => {
+          {users.map((user) => {
             return (
               <ArtistItem
-                key={index}
-                src={"../public/basic.jpeg"}
-                alt={"logo"}
-                username={"username"}
+                key={user.id}
+                src={user.profileImage}
+                alt={user.username}
+                username={user.username}
                 width={300}
               />
             );
