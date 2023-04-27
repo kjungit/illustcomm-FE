@@ -3,9 +3,9 @@ import { getCookie } from "../utils/cookies";
 
 const getAxiosInstance = (option?: { multi?: boolean }) => {
   // axios의 기본 설정을 한다.
-  // import.meta.env.VITE_SERVER_URL
+
   const config: AxiosRequestConfig = {
-    baseURL: "/api",
+    baseURL: import.meta.env.VITE_SERVER_URL,
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*", // CORS 문제 해결
