@@ -2,8 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 const GlobalStyles = createGlobalStyle` 
-  ${reset} // styled-reset이라는 패키지를 설치해야한다. 몇가지만 reset해 줄 경우 사용하지 않아도 무방하다.
-
+  ${reset} 
     a{
         text-decoration: none;
         color: inherit;
@@ -16,10 +15,22 @@ const GlobalStyles = createGlobalStyle`
       -webkit-user-select: auto;
       -ms-user-select: auto;
       user-select: auto;
+      -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     }
     input:focus {
       outline: none;
     }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+	 	 transition: background-color 5000s ease-in-out 0s;
+		 -webkit-transition: background-color 9999s ease-out;
+    	 -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+   }
 
     button {
       border: none;
@@ -27,6 +38,16 @@ const GlobalStyles = createGlobalStyle`
       padding: 0;
       cursor: pointer;
     }
+    html { 
+      background-color: #000;
+    }
+
+    /* img {
+      transition: all 0.2s  ease-in-out ;
+    }
+    img:hover {
+    transform: scale(1.1); */
+}
 `;
 
 export default GlobalStyles;
