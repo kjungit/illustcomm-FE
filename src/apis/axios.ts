@@ -1,12 +1,14 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import { getCookie } from "../utils/cookies";
 
-const getAxiosInstance = () => {
+const getAxiosInstance = (option?: { multi?: boolean }) => {
   // axios의 기본 설정을 한다.
+  // import.meta.env.VITE_SERVER_URL
   const config: AxiosRequestConfig = {
-    baseURL: import.meta.env.VITE_SERVER_URL,
+    baseURL: "/api",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*", // CORS 문제 해결
     },
     withCredentials: true,
   };
@@ -21,6 +23,9 @@ const getAxiosInstance = () => {
       if (token) {
         request.headers["Authorization"] = `Bearer ${token}`;
       }
+      if (option && option.multi)
+        request.headers["Content-Type"] = "multipart/form-data";
+
       return request;
     },
     // 요청이 실패하면 에러를 발생시킨다.
@@ -33,4 +38,4 @@ const getAxiosInstance = () => {
   return instance;
 };
 
-export const axiosInstance = getAxiosInstance();
+export const axiosInstance = getAxiosInstance;
