@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
-export const MainNewPostsWrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+export const PostListWrapper = styled.div`
+  width: 1200px;
   .my-masonry-grid {
-    height: 590px;
-    overflow: auto;
     display: flex;
     width: auto;
   }
@@ -16,19 +13,16 @@ export const MainNewPostsWrapper = styled.div`
     margin-bottom: 130px;
   }
 `;
-
-export const MainNewPostsTitle = styled.div`
+export const MainLikePostsTitle = styled.div`
   font-size: 30px;
   font-weight: 800;
   color: #fff;
   padding: 40px 20px 20px;
 `;
-
-export const MainPostsWrapper = styled.div`
+export const LikePostList = styled.div`
+  width: 1200px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-`;
-
-export const NewMainPost = styled.div`
-  width: 600px;
+  gap: 10px;
 `;
