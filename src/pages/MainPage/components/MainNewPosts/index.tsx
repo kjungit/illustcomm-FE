@@ -17,11 +17,12 @@ function MainNewPosts() {
     isLoading,
   } = useQuery("posts", getPosts, {
     onSuccess: (data) => {
-      data
-        .sort((a: any, b: any) => {
-          return a.updatedAt - b.updatedAt;
-        })
-        .reverse();
+      Array.isArray(data) &&
+        data
+          .sort((a: any, b: any) => {
+            return a.updatedAt - b.updatedAt;
+          })
+          .reverse();
     },
   });
 
