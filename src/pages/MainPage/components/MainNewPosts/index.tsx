@@ -16,14 +16,7 @@ function MainNewPosts() {
     error,
     isLoading,
   } = useQuery("posts", getPosts, {
-    onSuccess: (data) => {
-      Array.isArray(data) &&
-        data
-          .sort((a: any, b: any) => {
-            return a.updatedAt - b.updatedAt;
-          })
-          .reverse();
-    },
+    onSuccess: (data) => {},
   });
 
   if (isLoading) {
