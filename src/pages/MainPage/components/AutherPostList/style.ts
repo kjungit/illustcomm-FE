@@ -14,10 +14,10 @@ export const PostListWrapper = styled.div`
   }
 `;
 export const MainLikePostsTitle = styled.div`
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 800;
   color: #fff;
-  padding: 40px 20px 20px;
+  padding: 60px 20px 0px;
 `;
 export const LikePostList = styled.div`
   width: 1200px;

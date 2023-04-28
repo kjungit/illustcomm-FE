@@ -94,7 +94,7 @@ function PostUpdatePage() {
           <PostTitleInput
             id="title"
             type="text"
-            value={location.state.title}
+            defaultValue={location.state.title}
             placeholder="작품 제목"
             aria-invalid={
               !isDirty ? undefined : errors.title ? "true" : "false"
@@ -106,7 +106,7 @@ function PostUpdatePage() {
           {errors.title && <Alert role="alert">{errors.title.message}</Alert>}
           <PostBodyInput
             id="body"
-            value={location.state.body}
+            defaultValue={location.state.body}
             placeholder="작품 설명"
             aria-invalid={!isDirty ? undefined : errors.body ? "true" : "false"}
             {...register("body", {
