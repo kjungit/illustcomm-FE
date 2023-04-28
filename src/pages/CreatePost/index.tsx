@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { createPost } from "../../apis/services/Post";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -28,10 +28,12 @@ interface CreatePostProps {
 function CreatePostPage() {
   const [imageSrc, setImageSrc] = useState("");
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const { mutate } = useMutation(createPost, {
     onSuccess: (data) => {
       console.log(data);
+      queryClient.refetchQueries("posts");
     },
     onError: (error: AxiosError) => {
       console.log(error);
