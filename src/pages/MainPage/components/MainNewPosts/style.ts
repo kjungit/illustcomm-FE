@@ -18,7 +18,7 @@ export const MainNewPostsWrapper = styled.div`
 `;
 
 export const MainNewPostsTitle = styled.div`
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 800;
   color: #fff;
   padding: 40px 20px 20px;
