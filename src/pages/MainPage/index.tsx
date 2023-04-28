@@ -1,8 +1,8 @@
 import MainBanner from "./components/MainBanner";
 import MainNewPosts from "./components/MainNewPosts";
-import EventBanner from "../../common/EventBanner";
-import AutherPostList from "../../componets/AutherPostList";
+import AutherPostList from "./components/AutherPostList";
 import { Linkbar, MainWrapper } from "./styled";
+import EventBanner from "./components/EventBanner";
 
 function MainPage() {
   return (
@@ -11,10 +11,9 @@ function MainPage() {
       <Linkbar />
       <MainNewPosts></MainNewPosts>
       <Linkbar />
-      <EventBanner></EventBanner>
+      <EventBanner />
       <Linkbar />
       <AutherPostList></AutherPostList>
-      <Linkbar />
     </MainWrapper>
   );
 }

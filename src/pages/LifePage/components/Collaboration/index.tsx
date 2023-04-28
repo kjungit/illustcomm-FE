@@ -9,7 +9,7 @@ function Collaboration() {
         {Array.from({ length: 18 }).map((_, index) => {
           return (
             <Item key={index}>
-              <ItemImg src={"../public/hoody.jpeg"} alt={"img"} />
+              <ItemImg src={"/hoody.jpeg"} alt={"img"} />
             </Item>
           );
         })}

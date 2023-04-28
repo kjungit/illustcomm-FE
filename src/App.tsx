@@ -1,13 +1,21 @@
-import { useState } from "react";
 import GlobalStyles from "./styles/GlobalStyles";
+import { QueryClient, QueryClientProvider } from "react-query";
+import Router from "./routers/Router";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
+    <QueryClientProvider client={queryClient}>
       <GlobalStyles />
-    </div>
+      <Router />
+    </QueryClientProvider>
   );
 }
 

@@ -3,25 +3,34 @@ import styled from "styled-components";
 export const PostWrapper = styled.div``;
 
 export const PostImgWrapper = styled.div`
-  margin: 0 10px;
+  margin: 20px 10px;
   position: relative;
   overflow: hidden;
-  padding-bottom: 20px;
-  img {
-    ${(props) => props.width && `width: ${props.width}px`}
-    border: 10px solid #fff;
-  }
+  border: 10px solid #fff;
   &:hover {
     .parent {
       background-color: rgb(35, 35, 35, 0.9);
       .icon {
         font-size: 30px;
         color: #fff;
-        display: flex;
+      }
+      div {
+        width: 160px;
+        font-size: 20px;
+        display: block;
+        color: #fff;
         margin-right: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
+`;
+
+export const PostImg = styled.img`
+  display: block;
+  width: 100%;
 `;
 
 export const BottomWrapper = styled.div`
@@ -32,7 +41,12 @@ export const BottomWrapper = styled.div`
   bottom: 0;
   left: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding: 10px;
   align-items: center;
   font-size: 0px;
+`;
+
+export const Title = styled.div`
+  font-weight: 800;
 `;

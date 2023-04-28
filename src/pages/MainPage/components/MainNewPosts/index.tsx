@@ -5,12 +5,39 @@ import {
   MainNewPostsWrapper,
   MainPostsWrapper,
   NewMainPost,
-  NewPostList,
 } from "./style";
-
-const POST_SIZE = 220;
+import { useQuery } from "react-query";
+import { getPosts } from "../../../../apis/services/Post";
+import Masonry from "react-masonry-css";
 
 function MainNewPosts() {
+  const {
+    data: posts,
+    error,
+    isLoading,
+  } = useQuery("posts", getPosts, {
+    onSuccess: (data) => {
+      data
+        .sort((a: any, b: any) => {
+          return a.updatedAt - b.updatedAt;
+        })
+        .reverse();
+    },
+  });
+
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
+  if (error || !posts) {
+    return <div>error...</div>;
+  }
+
+  const breakpointBlogPostColumnsObj = {
+    default: 2,
+    1200: 1,
+  };
+
   return (
     <MainNewPostsWrapper>
       <MainNewPostsTitle>
@@ -20,48 +47,22 @@ function MainNewPosts() {
         <NewMainPost>
           <MainFirstPost></MainFirstPost>
         </NewMainPost>
-        <NewPostList>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-          <NewPost
-            width={POST_SIZE}
-            src={"../public/basic.jpeg"}
-            alt={"img"}
-          ></NewPost>
-        </NewPostList>
+        <Masonry
+          breakpointCols={breakpointBlogPostColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid-column"
+        >
+          {posts.map((post) => {
+            return (
+              <NewPost
+                key={post.id}
+                title={post.title}
+                src={post.image}
+                alt={post.title}
+              ></NewPost>
+            );
+          })}
+        </Masonry>
       </MainPostsWrapper>
     </MainNewPostsWrapper>
   );

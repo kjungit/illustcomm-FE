@@ -1,22 +1,19 @@
-import { AiFillHeart } from "react-icons/ai";
-import { AiOutlineHeart } from "react-icons/ai";
-import { PostWrapper } from "./style";
+import { PostImg, PostWrapper, Title } from "./style";
 import { PostImgWrapper } from "./style";
 import { BottomWrapper } from "./style";
-
-interface NewPostProps {
-  width: number;
-  src: string;
+interface PostItemProps {
+  title: string;
+  src: any;
   alt: string;
 }
 
-function NewPost({ width, src, alt }: NewPostProps) {
+function NewPost({ src, alt, title }: PostItemProps) {
   return (
     <PostWrapper>
       <PostImgWrapper>
-        <img width={width} src={src} alt={alt} />
+        <PostImg src={src} alt={alt} />
         <BottomWrapper className="parent">
-          <AiFillHeart className="icon" />
+          <Title>{title}</Title>
         </BottomWrapper>
       </PostImgWrapper>
     </PostWrapper>

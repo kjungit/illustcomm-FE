@@ -8,6 +8,7 @@ export const PostImgWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   position: relative;
+  padding-right: 10px;
   img {
     width: 600px;
     border: 10px solid #fff;

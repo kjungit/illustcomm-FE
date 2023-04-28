@@ -3,6 +3,18 @@ import styled from "styled-components";
 export const MainNewPostsWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  .my-masonry-grid {
+    height: 590px;
+    overflow: auto;
+    display: flex;
+    width: auto;
+  }
+  .my-masonry-grid-column {
+    background-clip: padding-box;
+  }
+  .my-masonry-grid-column > li {
+    margin-bottom: 130px;
+  }
 `;
 
 export const MainNewPostsTitle = styled.div`
@@ -18,15 +30,5 @@ export const MainPostsWrapper = styled.div`
 `;
 
 export const NewMainPost = styled.div`
-  width: 700px;
-`;
-
-export const NewPostList = styled.div`
-  width: 640px;
-  height: 600px;
-  overflow: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  width: 600px;
 `;
