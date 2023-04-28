@@ -30,7 +30,7 @@ function Footer() {
         <LeftTopWrapper>
           <TitleWrapper>
             <TitleLogo>
-              <img src="../public/illust-logo-white.png" alt="" />
+              <img src="/illust-logo-white.png" alt="" />
             </TitleLogo>
             <Title>ㅣ illustCommunity</Title>
           </TitleWrapper>

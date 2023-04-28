@@ -17,13 +17,13 @@ function Banner() {
     <SliderWrapper>
       <Slider {...settings}>
         <div>
-          <img src="../public/artlab-banner_1.png" alt="banner" />
+          <img src="../artlab-banner_1.png" alt="banner" />
         </div>
         <div>
-          <img src="../public/artlab-banner_2.png" alt="banner" />
+          <img src="../artlab-banner_2.png" alt="banner" />
         </div>
         <div>
-          <img src="../public/artlab-banner_3.png" alt="banner" />
+          <img src="../artlab-banner_3.png" alt="banner" />
         </div>
       </Slider>
     </SliderWrapper>

@@ -73,10 +73,7 @@ function CreatePostPage() {
         <LeftWrapper>
           {
             <UploadButton htmlFor="image">
-              <PreImage
-                src={imageSrc || "../public/nopic.jpg"}
-                alt="preview-img"
-              />
+              <PreImage src={imageSrc || "/nopic.jpg"} alt="preview-img" />
             </UploadButton>
           }
           <ProfileInput

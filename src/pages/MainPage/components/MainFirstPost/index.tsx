@@ -4,7 +4,7 @@ function MainFirstPost() {
   return (
     <>
       <PostImgWrapper>
-        <img src="../public/basic.jpeg" alt="" />
+        <img src="/basic.jpeg" alt="" />
       </PostImgWrapper>
     </>
   );

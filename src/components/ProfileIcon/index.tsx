@@ -73,7 +73,7 @@ function TopProfile() {
       )}
       <ProfileIcon>
         <ProfileImage
-          src={isLogin ? userData.profileImage : "../public/noprofile.png"}
+          src={isLogin ? userData.profileImage : "/noprofile.png"}
         />
       </ProfileIcon>
     </ProfileWrapper>

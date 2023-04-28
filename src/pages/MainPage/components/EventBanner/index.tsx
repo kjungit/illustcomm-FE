@@ -18,13 +18,13 @@ function EventBanner() {
     <SliderWrapper>
       <Slider {...settings}>
         <div>
-          <img src="../public/main-event-banner_1.png" alt="banner" />
+          <img src="/main-event-banner_1.png" alt="banner" />
         </div>
         <div>
-          <img src="../public/main-event-banner_2.png" alt="banner" />
+          <img src="/main-event-banner_2.png" alt="banner" />
         </div>
         <div>
-          <img src="../public/main-event-banner_3.png" alt="banner" />
+          <img src="/main-event-banner_3.png" alt="banner" />
         </div>
       </Slider>
     </SliderWrapper>

@@ -12,7 +12,7 @@ const NotWrapper = styled.div`
 function NotFoundPage() {
   return (
     <NotWrapper>
-      <img src="../public/notfound.jpg" alt="" />
+      <img src="/notfound.jpg" alt="" />
     </NotWrapper>
   );
 }

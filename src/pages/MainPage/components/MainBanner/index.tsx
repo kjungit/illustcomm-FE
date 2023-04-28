@@ -36,11 +36,11 @@ function MainBanner() {
   return (
     <MainBannerWrapper>
       <LeftWrapper>
-        <img src="../mainfont.png" alt="" />
+        <img src="/mainfont.png" alt="" />
       </LeftWrapper>
       <RightWrapper>
-        <img className="image-1" src="../mainbanner_1.jpeg" alt="" />
-        <img className="image-2" src="../mainbanner_2.jpeg" alt="" />
+        <img className="image-1" src="/mainbanner_1.jpeg" alt="" />
+        <img className="image-2" src="/mainbanner_2.jpeg" alt="" />
       </RightWrapper>
     </MainBannerWrapper>
   );
