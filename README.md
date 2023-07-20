@@ -15,7 +15,7 @@
   - 게시물 좋아요 기능
   - 게시물 댓글 기능
 
-### ⚙️ 개발 조건 및 환경
+### ⚙️ 개발환경
 - 사용언어: `React`, `Typecript`
 - HTTp Client: `axios`
 - style: `styled-components`
