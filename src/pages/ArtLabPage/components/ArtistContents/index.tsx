@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import ArtistItem from "../../../../common/ArtistItem";
+import ArtistItem from "../../../../components/common/ArtistItem";
 import {
   ArtistContentsWrapper,
   ArtistList,

@@ -1,6 +1,4 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "../common/Layout";
 import LifePage from "../pages/LifePage";
 import MainPage from "../pages/MainPage";
 import ArtLabPage from "../pages/ArtLabPage";

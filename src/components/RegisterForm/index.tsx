@@ -1,9 +1,8 @@
 import { MouseEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { UseMutateFunction, useMutation } from "react-query";
+import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { AuthResponse, LoginRequest } from "../../interface/Auth";
-import axios, { AxiosError, AxiosResponse } from "axios";
+import { AxiosError } from "axios";
 import {
   Alert,
   EmailCheckButton,
@@ -21,13 +20,12 @@ import {
   UploadButton,
 } from "./style";
 import { emailDuplicateCheck, signup } from "../../apis/services/Auth";
-import { useLoginStore, useUserDataStore } from "../../store";
 
 interface RegisterInputs {
   email: string;
   username: string;
   password: string;
-  profileImage: any;
+  profileImage: File[];
 }
 
 interface RequestDataProps extends RegisterInputs {
@@ -37,8 +35,7 @@ interface RequestDataProps extends RegisterInputs {
 function RegisterForm() {
   const [emailCheck, setEmailCheck] = useState("");
   const [imageSrc, setImageSrc] = useState("");
-  const { isLogin, setIsLogin } = useLoginStore();
-  const { setUserData } = useUserDataStore();
+
   const navigate = useNavigate();
 
   const { mutate: emailCheckMutation } = useMutation(emailDuplicateCheck, {
@@ -54,12 +51,11 @@ function RegisterForm() {
       setEmailCheck("이메일 중복 검사에 실패했습니다.");
     },
   });
+
   const { mutate: signupMutation } = useMutation(signup, {
     onSuccess: (data) => {
-      console.log(data);
-      setIsLogin(!isLogin);
       if (data) {
-        setUserData(data.content);
+        navigate("/signin");
       }
     },
     onError: (error: AxiosError) => {
@@ -94,9 +90,8 @@ function RegisterForm() {
       email,
       username,
       password,
-      profileImage: profileImage ? profileImage[0] : null,
+      profileImage: profileImage ? profileImage[0] : "/noprofile.png",
     });
-    navigate("/");
   };
 
   const onSubmitEmail = (evevt: MouseEvent) => {
@@ -106,8 +101,6 @@ function RegisterForm() {
     const email = getValues("email");
     const isEmailValid = emailRegex.test(email);
     const isEnglishValid = englishRegex.test(email);
-    console.log("이메일" + isEmailValid, "영어" + isEnglishValid);
-    console.log(!isEmailValid && !isEnglishValid);
     if (!isEmailValid || !isEnglishValid) {
       setEmailCheck("이메일 형식에 맞지 않습니다.");
       return;
@@ -146,12 +139,16 @@ function RegisterForm() {
           id="username"
           type="text"
           placeholder="User ID"
-          aria-invalid={!isDirty ? undefined : errors.email ? "true" : "false"}
+          aria-invalid={
+            !isDirty ? undefined : errors.username ? "true" : "false"
+          }
           {...register("username", {
             required: "UserName은 필수 입력입니다.",
           })}
         />
-        {errors.email && <Alert role="alert">{errors.email.message}</Alert>}
+        {errors.username && (
+          <Alert role="alert">{errors.username.message}</Alert>
+        )}
         <Label>* 비밀번호 [ 8자리 이상 ]</Label>
         <RegisterPassWordInput
           id="password"

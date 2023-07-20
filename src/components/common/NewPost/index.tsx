@@ -3,7 +3,7 @@ import { PostImgWrapper } from "./style";
 import { BottomWrapper } from "./style";
 interface PostItemProps {
   title: string;
-  src: any;
+  src: string;
   alt: string;
 }
 

@@ -17,17 +17,16 @@ import {
   PostImg,
   CommentLink,
 } from "./style";
-import { useUserDataStore } from "../../store";
+import { useUserDataStore } from "../../../store";
 import Like from "../Like";
 import React from "react";
 import { PostItemProps } from "./interface";
 
 function PostItem({
-  post: { id, body, src, alt, likes, comments, author },
+  post: { id, body, image, alt, likes, comments, author },
 }: PostItemProps) {
   const { userData } = useUserDataStore();
   const like = likes.some((like) => like.user.id === userData.id);
-
   return (
     <PostItemWrapper>
       <PostTopWrapper>
@@ -35,7 +34,7 @@ function PostItem({
         <PostUserName>{author.username}</PostUserName>
       </PostTopWrapper>
       <PostPicWrapper to={"/piclab/" + id} state={id}>
-        <PostImg src={src}></PostImg>
+        <PostImg src={image}></PostImg>
       </PostPicWrapper>
       <PostIconWrapper>
         <Like postid={id} isMyLiked={like} />

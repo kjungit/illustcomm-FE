@@ -1,9 +1,10 @@
-import PostItem from "../../common/PostItem";
+import PostItem from "../../components/common/PostItem";
 import Masonry from "react-masonry-css";
 import { PicLabWrapper } from "./style";
 import { getPosts } from "../../apis/services/Post";
 import { useQuery } from "react-query";
-import { PostItemProps } from "../../common/PostItem/interface";
+import { AxiosError } from "axios";
+import { PostResponse } from "../../interface/Post";
 
 const breakpointBlogPostColumnsObj = {
   default: 2,
@@ -15,15 +16,7 @@ function PicLabPage() {
     data: posts,
     error,
     isLoading,
-  } = useQuery("posts", getPosts, {
-    onSuccess: (data) => {
-      data
-        .sort((a: any, b: any) => {
-          return a.updatedAt - b.updatedAt;
-        })
-        .reverse();
-    },
-  });
+  } = useQuery<PostResponse[], AxiosError>("posts", getPosts);
 
   if (isLoading) {
     return <div>loading...</div>;
@@ -33,6 +26,7 @@ function PicLabPage() {
     return <div>error...</div>;
   }
 
+  const arrPosts = posts.sort((a, b) => a.id - a.id).reverse();
   return (
     <PicLabWrapper>
       <Masonry
@@ -40,14 +34,14 @@ function PicLabPage() {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid-column"
       >
-        {posts.map((post) => {
+        {arrPosts.map((post) => {
           return (
             <PostItem
               key={post.id}
               post={{
                 id: post.id,
                 body: post.body,
-                src: post.image,
+                image: post.image,
                 alt: post.title,
                 likes: post.likes,
                 comments: post.comments.length,

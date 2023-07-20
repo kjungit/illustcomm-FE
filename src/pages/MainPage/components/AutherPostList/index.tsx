@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { getPosts } from "../../../../apis/services/Post";
-import NewPost from "../../../../common/NewPost";
+import NewPost from "../../../../components/common/NewPost";
 import { MainLikePostsTitle, PostListWrapper } from "./style";
 import Masonry from "react-masonry-css";
 

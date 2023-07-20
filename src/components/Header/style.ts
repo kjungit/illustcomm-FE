@@ -5,6 +5,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   height: 100%;
 `;
+
 export const TopWrapeer = styled.div`
   display: flex;
   align-items: center;
@@ -12,6 +13,7 @@ export const TopWrapeer = styled.div`
   max-width: 1200px;
   margin: auto;
 `;
+
 export const Logo = styled.div`
   img {
     width: 200px;

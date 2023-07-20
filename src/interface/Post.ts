@@ -4,21 +4,29 @@ export interface PostRequest {
   image: File;
 }
 
-export interface PostUpdateRequest extends PostRequest {
-  postId: any;
+export interface PostUpdateRequest {
+  postId: {
+    id: number;
+  };
+  title: string;
+  body: string;
+  image: File;
 }
-
-export interface PostResponse extends PostRequest {
+export interface PostResponse {
+  title: string;
+  body: string;
+  image: string;
   id: number;
-  userId?: number;
+  userId: number;
   createdAt: string;
   updatedAt: string;
   author: Author;
   likes: Like[];
-  comments: Comment[];
+  comments: CommentProps[];
 }
 
-export interface Comment {
+export interface CommentProps {
+  author: Author;
   id: number;
   body: string;
   createdAt: string;

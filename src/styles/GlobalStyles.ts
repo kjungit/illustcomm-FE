@@ -54,8 +54,9 @@ const GlobalStyles = createGlobalStyle`
       transition: all 0.2s  ease-in-out ;
     }
     img:hover {
-    transform: scale(1.1); */
-}
+    transform: scale(1.1); 
+    }
+    */
 `;
 
 export default GlobalStyles;

@@ -1,4 +1,4 @@
-import PostItem from "../../common/PostItem";
+import PostItem from "../../components/common/PostItem";
 import Masonry from "react-masonry-css";
 import { CreatePostButton, PicLabWrapper, TopWrapper } from "./style";
 import { getPosts } from "../../apis/services/Post";
@@ -60,7 +60,7 @@ function MyLabPage() {
               post={{
                 id: post.id,
                 body: post.body,
-                src: post.image,
+                image: post.image,
                 alt: post.title,
                 likes: post.likes,
                 comments: post.comments.length,

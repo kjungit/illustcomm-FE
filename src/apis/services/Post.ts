@@ -29,7 +29,7 @@ export const createPost = async (post: PostRequest) => {
 
 export const updatePost = async (post: PostUpdateRequest) => {
   const formData = new FormData();
-  console.log(post);
+  console.log(post.image);
   formData.append("title", post.title);
   formData.append("body", post.body);
   formData.append("image", post.image);

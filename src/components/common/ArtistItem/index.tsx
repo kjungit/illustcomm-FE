@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { ArtName, TopArtItem, TopArtItemImg } from "./style";
 import React from "react";
 

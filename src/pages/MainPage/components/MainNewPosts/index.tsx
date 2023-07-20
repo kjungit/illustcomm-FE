@@ -1,5 +1,5 @@
 import MainFirstPost from "../MainFirstPost";
-import NewPost from "../../../../common/NewPost";
+import NewPost from "../../../../components/common/NewPost";
 import {
   MainNewPostsTitle,
   MainNewPostsWrapper,

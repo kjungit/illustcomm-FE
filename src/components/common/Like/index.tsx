@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { likePost } from "../../apis/services/Post";
+import { likePost } from "../../../apis/services/Post";
 import { useMutation, useQueryClient } from "react-query";
 import { LikeWrapper } from "./style";
 

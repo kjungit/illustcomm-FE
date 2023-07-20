@@ -1,4 +1,4 @@
-import Layout from "../../common/Layout";
+import Layout from "../common/Layout";
 import TopProfile from "../ProfileIcon";
 import { HeaderWrapper, Logo, MyProfile, TopWrapeer } from "./style";
 

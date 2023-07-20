@@ -3,7 +3,7 @@ export interface PostItemProps {
   post: {
     id: number;
     body: string;
-    src: any;
+    image: string;
     alt: string;
     likes: likesProps[];
     comments: number;

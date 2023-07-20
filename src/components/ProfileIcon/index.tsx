@@ -1,11 +1,9 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { getCookie } from "../../utils/cookies";
 import { useLoginStore, useUserDataStore } from "../../store";
 import { removeCookie } from "../../utils/cookies";
 import { useMutation } from "react-query";
 import { logout } from "../../apis/services/Auth";
-import { persist } from "zustand/middleware";
 
 const ProfileWrapper = styled.div`
   display: flex;
@@ -46,7 +44,6 @@ function TopProfile() {
   const { mutate: logoutMutation } = useMutation(logout, {
     onSuccess: (data) => {
       removeCookie("accessToken");
-      console.log("logout success", data);
       alert("로그아웃 되었습니다.");
     },
   });
