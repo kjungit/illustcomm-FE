@@ -31,6 +31,7 @@ function LoginForm({ mutate, isError }: LoginFormProps) {
   const navigateToSignUp = () => {
     navigate("/signup");
   };
+
   return (
     <>
       <SignFormWrapper onSubmit={handleSubmit(onSubmit)}>
