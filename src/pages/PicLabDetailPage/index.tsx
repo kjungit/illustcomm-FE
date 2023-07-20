@@ -54,7 +54,6 @@ function PicLabDetailPage() {
 
   const { mutate } = useMutation(createComment, {
     onSuccess: (data) => {
-      console.log(data);
       queryClient.refetchQueries("post");
     },
     onError: (error: AxiosError) => {
@@ -63,9 +62,6 @@ function PicLabDetailPage() {
   });
 
   const { mutate: deleteMutate } = useMutation(deletePost, {
-    onSuccess: (data) => {
-      console.log(data);
-    },
     onError: (error: AxiosError) => {
       console.log(error);
     },

@@ -19,7 +19,7 @@ import {
   UploadButton,
 } from "./style";
 
-interface CreatePostProps {
+export interface CreatePostProps {
   title: string;
   body: string;
   image: FileList;
@@ -32,7 +32,6 @@ function CreatePostPage() {
 
   const { mutate } = useMutation(createPost, {
     onSuccess: (data) => {
-      console.log(data);
       queryClient.refetchQueries("posts");
     },
     onError: (error: AxiosError) => {

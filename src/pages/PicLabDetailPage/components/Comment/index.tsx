@@ -9,27 +9,24 @@ import {
   CommentItem,
   CommentProfile,
 } from "./style";
+import { useUserDataStore } from "../../../../store";
+import { CommentProps } from "../../../../interface/Post";
 
-interface Props {
-  comment: any;
-}
-
-function Comment({ comment }: Props) {
+function Comment({ comment }: { comment: CommentProps }) {
   const queryClient = useQueryClient();
+  const { userData } = useUserDataStore();
   const { mutate } = useMutation(deleteComment, {
     onSuccess: (data) => {
-      console.log(data);
       queryClient.refetchQueries("post");
     },
     onError: (error) => {
       console.log(error);
     },
   });
-
   const onClickDelete = () => {
     mutate(comment.id);
   };
-
+  const isMyComment = comment.author.id === userData.id;
   return (
     <CommentItem>
       <CommentProfile src={comment.author.profileImage}></CommentProfile>
@@ -38,7 +35,9 @@ function Comment({ comment }: Props) {
         <CommentContent>{comment.body}</CommentContent>
       </CommentBody>
       <CommentButtonWrapper>
-        <CommentButton onClick={onClickDelete}>삭제</CommentButton>
+        {isMyComment && (
+          <CommentButton onClick={onClickDelete}>삭제</CommentButton>
+        )}
       </CommentButtonWrapper>
     </CommentItem>
   );

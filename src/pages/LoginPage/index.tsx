@@ -14,6 +14,7 @@ import LoginForm from "./components/LoginForm";
 function LoginPage() {
   const navigate = useNavigate();
   const { setUserData } = useUserDataStore();
+  const { isLogin, setIsLogin } = useLoginStore();
   const { mutate: mutateLogin, isError } = useMutation(login, {
     onSuccess: (data) => {
       setCookie("accessToken", data.accessToken, {
@@ -21,6 +22,7 @@ function LoginPage() {
         maxAge: data.content.exp - data.content.iat,
       });
       setUserData(data.content);
+      setIsLogin(!isLogin);
       navigate("/");
     },
     onError: (error: AxiosError) => {
